@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Observatório RMVPLN</title>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.css' rel='stylesheet' />
+	<link href='site.css' rel='stylesheet' />
+  </head>
+  <body>
+      <div id='masthead'>
+      <div id='header'>
+          <h1><a href='/'><span class='brand'>Observatório</span>RMVPLN <span class='subtitle'>Mapeando colaborativamente os problemas e soluções da Região Metropolitana do Vale do Paraíba e Litoral Norte de São Paulo</span></a></h1>
+      </div>
+      <div class='limiter'>
+        <!-- block for menu by type incident -->
+        <ul class='navigation clearfix'>
+          <li><a href='#' class='active' id='all_incident_type'>Mostrar Tudo</a></li>
+          <li><a id='Problema_1' data-layer='1' href='#'>Problema 1</a></li>
+          <li><a id='Problema_2' data-layer='2' href='#'>Problema 2</a></li>
+          <li><a id='Problema_3' data-layer='3' href='#'>Problema 3</a></li>
+          <li><a id='Problema_4' data-layer='4' href='#'>Problema 4</a></li>
+          <li><a id='Problema_5' data-layer='5' href='#'>Problema 5</a></li>
+          <li><a id='Outros' data-layer='6' href='#'>Outros</a></li>
+          <li><a href='#' id='arrow_show_block' class='graph views'>Gráfico</a></li>
+          <li><a href='#' id='arrow_block_inf' class='views'>Legenda</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Dropdown: Graph -->
+    <div class='dropdown statistic_by_month' id='all_incident_type_statistic'></div>
+    <div id='close_block_stac' class='close'> <a href='#'>&times;</a> </div>
+    <!-- Dropdown: Legend -->
+    <div class='dropdown block_inf_type'>
+      <div class='limiter'>
+        <div class='col col-50'>
+          <div class='inner'>
+            <h3>Problema 1</h3>
+            <p>Texto explicativo.</p>
+            <h3>Problema 2</h3>
+            <p>Texto explicativo.</p>
+            <h3>Problema 3</h3>
+            <p>Texto explicativo.</p>
+          </div>
+        </div>
+        <div class='col col-50'>
+          <div class='inner'>
+            <h3>Problema 4</h3>
+            <p>Texto explicativo.</p>
+            <h3>Problema 5</h3>
+            <p>Texto explicativo.</p>
+            <h3>Outros</h3>
+            <p>Texto explicativo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='close_block_inf' class='close'> <a href='#'>&times;</a></div>
+    <!-- Section: Map -->
+    <div class='map-container'>
+      <div id='indicate_menu'>
+        <p>Todos os registros</p>
+      </div>
+
+      <div class='introduction'>
+        <div class='inner'>
+          <h3>O projeto</h3>
+          <p> aqui vai um texto que explica o projeto e a de ferramenta de contribuição, visualização e acesso aos dados.</p>
+          <p>O mapa ao lado mostra os registros da contribuição dos usuários. Os pontos são diariamente revisados e o mapa atualizado com as contribuições da população.
+          <p>
+		  <a href="javascript:void( window.open('http://form.jotformz.com/form/50985031104649', 'blank','scrollbars=yes,toolbar=no,width=700,height=900'))">Clique aqui e colabore! Mapeie conosco!</a>
+		  
+</p>
+        </div>
+      </div>
+      <div id='map'></div>
+    </div>
+    <!-- Section: Month Selection -->
+    <div class='block clearfix'>
+      <div class='limiter'>
+        <ul id='months' class='navigation clearfix'>
+          <li>
+            <a href='#' class='active' id='all_incident_month'>Todos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Section: Graph and Downloads -->
+    <div class='section'>
+      <div class='limiter clearfix'>
+        <!-- Graph -->
+        <div id='block_statistic' class='col col-50'>
+          <h3>Porcentagem dos totais indicações no mapa</h3>
+          <div id='img_total_percentage'></div>
+          <div id='num-incident'></div>
+        </div>
+        <!-- Downloads -->
+        <div id='downloads' class='col col-50'>
+          <a id='download_csv' title='Download dos dados' class='button'>Download dos dados em .csv</a>
+          <p>Faça o download dos dados atuais no formato .csv para uso em sua própria planilha<a href='http://mapbox.com/tilemill'>TileMill</a>.</p>
+          <a id='download_josn' title='API Feed' class='button'>Dados JSON Feed</a>
+          <p>Faça o download dos dados em formato  JSON API para uso no desenvolvimento de outra aplicação web.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Section: Footer -->
+    <div id='footer'>
+      <div class='limiter'>
+        <a href='#opendata'>Dados Abertos</a> | <a href='#howto'>Dicas de como desenvolver algo similar</a>
+        | Desenvolvido com Mapbox e <a href='http://tilemill.com'>TileMill</a>
+        <a href='http://mapbox.com/' class='icon mapbox'>MapBox</a>
+      </div>
+    </div>
+    <!-- Modals -->
+    <div id='backdrop'></div>
+    <div id='opendata' class='popover'>
+      <h2>Dados abertos</h2>
+      <p>Aqui vai um texto explicativo da visão do projeto em relação aos dados abertos para a gestão do território.
+      </p>
+      <p>Aqui mais informações.
+      </p>
+      <p>E outras informações.
+      </p>
+    </div>
+
+    <div id='howto' class='popover'>
+      <h2>Como Desenvolver</h2>
+      <p>Esta aplicação foi desenvolvida utilizando dados de <a href='http://www.openstreetmap.org/?lat=-13.16078&amp;lon=-74.22367&amp;zoom=16&amp;layers=M'>OpenStreetMap</a></p>
+      <p>mais informações de referencia no desenvolvimento da aplicação:
+        <a href='http://developmentseed.org/blog/2012/sept/13/mapping-dynamic-data-google-spreadsheet/'>
+        Mapping Dynamic Data Directly from a Google Spreadsheet</a>
+        <a href='http://mapbox.com/blog/2012-09-05-mapping-crowdsourced-locations-google-docs/'>
+        Mapping Crowdsourced Locations with MapBox and Google Docs</a>
+      </p>
+	  <p> Adaptado/desenvolvido pelo prof. Julio Cesar Pedrassoli, Geógrafo/UFBA.
+    </div>
+    <a id='close' href='#close'>&times;</a>
+
+    <script src='https://www.google.com/jsapi'></script>
+    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
+	<script src='ext/jquery.min.js'></script>
+    <script src='ext/underscore.min.js'></script>
+    <script src='ext/google_docs.js'></script>
+    <script src='site.js'></script>
+  </body>
+</html>
